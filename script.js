@@ -5,6 +5,8 @@
 const slideshow = document.querySelector(".slideshow");
 const music = document.getElementById("music");
 
+const startScreen = document.getElementById("startScreen");
+const startBtn = document.getElementById("startBtn");
 const images = [
     "images/1.jpg",
     "images/2.jpg",
