@@ -37,20 +37,20 @@ setInterval(changeBackground,5000);
 
 
 // =============================
-// Music
+// Start Button
 // =============================
 
-function playMusic(){
+startBtn.addEventListener("click", async () => {
 
-    music.play().catch(()=>{});
+    try{
+        await music.play();
+    }catch(e){
+        console.log(e);
+    }
 
-    document.removeEventListener("click",playMusic);
-    document.removeEventListener("touchstart",playMusic);
+    startScreen.style.display = "none";
 
-}
-
-document.addEventListener("click",playMusic);
-document.addEventListener("touchstart",playMusic);
+});
 
 
 // =============================
