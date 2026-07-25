@@ -116,3 +116,34 @@ star.remove();
 }
 
 setInterval(createSparkle,250);
+const celebrate=document.getElementById("celebrate");
+
+celebrate.addEventListener("click",()=>{
+
+const emoji=["🎊","🎉","✨","💖","🎈"];
+
+for(let i=0;i<150;i++){
+
+const c=document.createElement("div");
+
+c.className="confetti";
+
+c.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+
+c.style.left=Math.random()*100+"%";
+
+c.style.animationDuration=(3+Math.random()*3)+"s";
+
+c.style.fontSize=(15+Math.random()*20)+"px";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},6000);
+
+}
+
+});
