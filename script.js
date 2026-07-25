@@ -1,58 +1,77 @@
-const slideshow = document.querySelector(".slideshow");
+// =============================
+// Background Slideshow
+// =============================
 
+const slideshow = document.querySelector(".slideshow");
 const music = document.getElementById("music");
 
 const images = [
-    "images/1.Sis 1.jpg",
-    "images/2.Sis 3.jpg",
-    "images/3.Sis 4.jpg",
-    "images/4.Sis 5.jpg",
-    "images/5.Sis 6.jpg",
-    "images/6.Sis 7.jpg"
+    "images/1.jpg",
+    "images/2.jpg",
+    "images/3.jpg",
+    "images/4.jpg",
+    "images/5.jpg",
+    "images/6.jpg"
 ];
 
-let index = 0;
+let current = 0;
 
-function changeBackground() {
-    slideshow.style.backgroundImage = `url('${images[index]}')`;
+function changeBackground(){
 
-    index++;
+    slideshow.style.backgroundImage =
+    `url("${images[current]}")`;
 
-    if (index >= images.length) {
-        index = 0;
+    current++;
+
+    if(current >= images.length){
+        current = 0;
     }
+
 }
 
 changeBackground();
 
-setInterval(changeBackground, 5000);
+setInterval(changeBackground,5000);
 
-// প্রথম টাচ/ক্লিকের পর গান চালু হবে
-function startMusic() {
-    music.play().catch(() => {});
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
+
+// =============================
+// Music
+// =============================
+
+function playMusic(){
+
+    music.play().catch(()=>{});
+
+    document.removeEventListener("click",playMusic);
+    document.removeEventListener("touchstart",playMusic);
+
 }
 
-document.addEventListener("click", startMusic);
-document.addEventListener("touchstart", startMusic);
-const heartContainer = document.getElementById("hearts");
+document.addEventListener("click",playMusic);
+document.addEventListener("touchstart",playMusic);
+
+
+// =============================
+// Hearts
+// =============================
+
+const hearts=document.getElementById("hearts");
 
 function createHeart(){
 
-    const heart = document.createElement("div");
+    const heart=document.createElement("div");
 
-    heart.className = "heart";
+    heart.className="heart";
 
-    heart.innerHTML = "💖";
+    heart.innerHTML="ðŸ’–";
 
-    heart.style.left = Math.random()*100 + "%";
+    heart.style.left=Math.random()*100+"%";
 
-    heart.style.fontSize = (18 + Math.random()*25) + "px";
+    heart.style.fontSize=(18+Math.random()*30)+"px";
 
-    heart.style.animationDuration = (5 + Math.random()*4) + "s";
+    heart.style.animationDuration=(5+Math.random()*4)+"s";
 
-    heartContainer.appendChild(heart);
+    hearts.appendChild(heart);
 
     setTimeout(()=>{
         heart.remove();
@@ -61,89 +80,160 @@ function createHeart(){
 }
 
 setInterval(createHeart,350);
+
+
+// =============================
+// Balloons
+// =============================
+
 const balloons=document.getElementById("balloons");
 
 function createBalloon(){
 
-const balloon=document.createElement("div");
+    const balloon=document.createElement("div");
 
-balloon.className="balloon";
+    balloon.className="balloon";
 
-const list=["🎈","🎈","🎈","🎉"];
+    balloon.innerHTML="ðŸŽˆ";
 
-balloon.innerHTML=list[Math.floor(Math.random()*list.length)];
+    balloon.style.left=Math.random()*100+"%";
 
-balloon.style.left=Math.random()*100+"%";
+    balloon.style.fontSize=(40+Math.random()*25)+"px";
 
-balloon.style.animationDuration=(8+Math.random()*4)+"s";
+    balloon.style.animationDuration=(8+Math.random()*4)+"s";
 
-balloons.appendChild(balloon);
+    balloons.appendChild(balloon);
 
-setTimeout(()=>{
-
-balloon.remove();
-
-},12000);
+    setTimeout(()=>{
+        balloon.remove();
+    },12000);
 
 }
 
 setInterval(createBalloon,1200);
 
 
+// =============================
+// Sparkles
+// =============================
 
 const sparkles=document.getElementById("sparkles");
 
 function createSparkle(){
 
-const star=document.createElement("div");
+    const star=document.createElement("div");
 
-star.className="sparkle";
+    star.className="sparkle";
 
-star.innerHTML="✨";
+    star.innerHTML="âœ¨";
 
-star.style.left=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
 
-star.style.animationDuration=(3+Math.random()*3)+"s";
+    star.style.fontSize=(15+Math.random()*15)+"px";
 
-sparkles.appendChild(star);
+    star.style.animationDuration=(3+Math.random()*3)+"s";
 
-setTimeout(()=>{
+    sparkles.appendChild(star);
 
-star.remove();
-
-},6000);
+    setTimeout(()=>{
+        star.remove();
+    },6000);
 
 }
 
 setInterval(createSparkle,250);
+
+
+// =============================
+// Celebrate Button
+// =============================
+
 const celebrate=document.getElementById("celebrate");
 
 celebrate.addEventListener("click",()=>{
 
-const emoji=["🎊","🎉","✨","💖","🎈"];
+    const list=["ðŸŽŠ","ðŸŽ‰","ðŸ’–","âœ¨","ðŸŽˆ"];
 
-for(let i=0;i<150;i++){
+    for(let i=0;i<150;i++){
 
-const c=document.createElement("div");
+        const item=document.createElement("div");
 
-c.className="confetti";
+        item.className="confetti";
 
-c.innerHTML=emoji[Math.floor(Math.random()*emoji.length)];
+        item.innerHTML=list[Math.floor(Math.random()*list.length)];
 
-c.style.left=Math.random()*100+"%";
+        item.style.left=Math.random()*100+"%";
 
-c.style.animationDuration=(3+Math.random()*3)+"s";
+        item.style.fontSize=(15+Math.random()*20)+"px";
 
-c.style.fontSize=(15+Math.random()*20)+"px";
+        item.style.animationDuration=(3+Math.random()*3)+"s";
 
-document.body.appendChild(c);
+        document.body.appendChild(item);
 
-setTimeout(()=>{
+        setTimeout(()=>{
+            item.remove();
+        },6000);
 
-c.remove();
+    }
 
-},6000);
+});
+
+
+// =============================
+// Gift Popup
+// =============================
+
+const gift=document.getElementById("gift");
+
+const popup=document.getElementById("popup");
+
+const typing=document.getElementById("typing");
+
+const message=
+
+`Happy Birthday Dear Sister â¤ï¸
+
+May Allah bless you with endless happiness,
+good health,
+success
+and a beautiful life.
+
+Thank you for always supporting me.
+
+You are one of the greatest blessings
+in my life.
+
+With Love â¤ï¸
+
+Your Brother
+Shahriar`;
+
+gift.onclick=()=>{
+
+    popup.style.display="flex";
+
+    typing.innerHTML="";
+
+    let i=0;
+
+    const timer=setInterval(()=>{
+
+        typing.innerHTML+=message.charAt(i);
+
+        i++;
+
+        if(i>=message.length){
+
+            clearInterval(timer);
+
+        }
+
+    },40);
 
 }
 
-});
+function closePopup(){
+
+    popup.style.display="none";
+
+}
