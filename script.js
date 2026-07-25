@@ -36,3 +36,28 @@ function startMusic() {
 
 document.addEventListener("click", startMusic);
 document.addEventListener("touchstart", startMusic);
+const heartContainer = document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "💖";
+
+    heart.style.left = Math.random()*100 + "%";
+
+    heart.style.fontSize = (18 + Math.random()*25) + "px";
+
+    heart.style.animationDuration = (5 + Math.random()*4) + "s";
+
+    heartContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+
+}
+
+setInterval(createHeart,350);
