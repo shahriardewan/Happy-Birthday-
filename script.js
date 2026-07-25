@@ -63,7 +63,7 @@ function createHeart(){
 
     heart.className="heart";
 
-    heart.innerHTML="ðŸ’–";
+    heart.innerHTML = "💖";
 
     heart.style.left=Math.random()*100+"%";
 
@@ -94,7 +94,7 @@ function createBalloon(){
 
     balloon.className="balloon";
 
-    balloon.innerHTML="ðŸŽˆ";
+    balloon.innerHTML = "🎈";
 
     balloon.style.left=Math.random()*100+"%";
 
@@ -125,7 +125,7 @@ function createSparkle(){
 
     star.className="sparkle";
 
-    star.innerHTML="âœ¨";
+    star.innerHTML = "✨";
 
     star.style.left=Math.random()*100+"%";
 
@@ -152,7 +152,7 @@ const celebrate=document.getElementById("celebrate");
 
 celebrate.addEventListener("click",()=>{
 
-    const list=["ðŸŽŠ","ðŸŽ‰","ðŸ’–","âœ¨","ðŸŽˆ"];
+    const list = ["🎊","🎉","💖","✨","🎈"];
 
     for(let i=0;i<150;i++){
 
@@ -189,13 +189,11 @@ const popup=document.getElementById("popup");
 
 const typing=document.getElementById("typing");
 
-const message=
-
-`Happy Birthday Dear Sister â¤ï¸
+const message = `Happy Birthday Dear Sister ❤️
 
 May Allah bless you with endless happiness,
 good health,
-success
+success,
 and a beautiful life.
 
 Thank you for always supporting me.
@@ -203,7 +201,7 @@ Thank you for always supporting me.
 You are one of the greatest blessings
 in my life.
 
-With Love â¤ï¸
+With Love ❤️
 
 Your Brother
 Shahriar`;
