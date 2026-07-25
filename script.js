@@ -61,3 +61,58 @@ function createHeart(){
 }
 
 setInterval(createHeart,350);
+const balloons=document.getElementById("balloons");
+
+function createBalloon(){
+
+const balloon=document.createElement("div");
+
+balloon.className="balloon";
+
+const list=["🎈","🎈","🎈","🎉"];
+
+balloon.innerHTML=list[Math.floor(Math.random()*list.length)];
+
+balloon.style.left=Math.random()*100+"%";
+
+balloon.style.animationDuration=(8+Math.random()*4)+"s";
+
+balloons.appendChild(balloon);
+
+setTimeout(()=>{
+
+balloon.remove();
+
+},12000);
+
+}
+
+setInterval(createBalloon,1200);
+
+
+
+const sparkles=document.getElementById("sparkles");
+
+function createSparkle(){
+
+const star=document.createElement("div");
+
+star.className="sparkle";
+
+star.innerHTML="✨";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.animationDuration=(3+Math.random()*3)+"s";
+
+sparkles.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},6000);
+
+}
+
+setInterval(createSparkle,250);
