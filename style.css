@@ -40,6 +40,10 @@ body{
 
     transition:background-image 1.5s ease-in-out;
 
+    animation:zoom 20s linear infinite;
+
+    filter:brightness(1.05);
+
     z-index:-3;
 
 }
